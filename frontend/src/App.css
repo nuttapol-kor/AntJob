@@ -1,0 +1,163 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.page {
+  padding-top: 100px;
+  width: 100%;
+  background-color: #FFFFFF;
+}
+
+.dashboard-page {
+  background-color: #0d1117;
+  color: #c9d1d9;
+}
+
+
+
+/* .MuiTypography-root {
+  color: #212b36;
+} */
+
+.myButton {
+  background-color: #ff8400;
+  border-radius: 28px;
+  border: 1px solid #e87605;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-size: 20px;
+  height: auto;
+  padding: 5px 17px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #ff8400;
+}
+.myButton:hover {
+  background-color: #fa901e;
+  border-radius: 28px;
+}
+.myButton:active {
+  position: relative;
+  top: 1px;
+}
+.myButton:focus {
+  outline: none;
+}
+
+.excelButton {
+  background-color: #188f38;
+  border-radius: 28px;
+  border: 1px solid #18ab29;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-size: 20px;
+  padding: 5px 17px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #2f6627;
+}
+.excelButton:hover {
+  background-color: #419e0f;
+}
+.excelButton:active {
+  position: relative;
+  top: 1px;
+}
+.excelButton:focus {
+  outline: none;
+}
+
+.rbc-header {
+  padding: 8px 3px !important;
+}
+
+.rbc-off-range-bg {
+  background-color: #d2d2d20d !important;
+}
+
+.rbc-today {
+  background-color: #007afd !important;
+}
+
+.rbc-now {
+  color: #FFFFFF !important;
+}
+
+.rbc-date-cell:first-child, .rbc-date-cell:last-child {
+  color: #e56a75;
+}
+
+.rbc-month-view {
+  border-color: #919eab3d !important;
+}
+
+.holidayEvent {
+  background-color: #7451ff !important;
+  color: #ffffff !important;
+}
+.otEvent {
+  background-color: #1e4db6 !important;
+  color: #ffffff !important;
+}
+.invalidTimeEvent {
+  background-color: #38ca7f !important;
+  color: #ffffff !important;
+}
+.absentEvent {
+  background-color: #1997f5 !important;
+  color: #ffffff !important;
+}
+.lateEvent {
+  background-color: #fc4b6c !important;
+  color: #ffffff !important;
+}
+.leaveEvent {
+  background-color: #fdc90c !important;
+  color: #ffffff !important;
+}
+
+*::-webkit-scrollbar {
+  width: "0px";
+}
+*::-webkit-scrollbar-track {
+  background-color: darkgrey;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.1);
+}
