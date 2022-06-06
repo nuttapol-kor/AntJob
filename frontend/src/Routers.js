@@ -8,6 +8,7 @@ import Login from "./components/pages/login/LoginPage";
 import Landing from "./components/pages/landing";
 import Register from "./components/pages/register";
 import { UnauthorizedPage, NotFoundPage } from "./components/pages/error";
+import { RequestListPage } from "./components/pages/listCard/requestListPage";
 
 //User
 import ProfilePage from "./components/pages/user/profile";
@@ -160,6 +161,7 @@ const Routers = () => {
           <Route exact path="/register" component={Register} />
           <Route exact path="/landing" component={Landing} />
           <Route exact path="/unauthorized" component={UnauthorizedPage} />
+          <Route exact path="/request/list" component={RequestListPage} />
           <Container>
             {/* User Route */}
             <UserRoute exact path="/notification" component={Notification} />

@@ -25,17 +25,19 @@ const StyledRoot = styled("div")({
       columnGap: 12,
       ["@media only screen and (max-width: 600px)"]:{
         gridTemplateColumns: "repeat(1, 1fr)",
-      }
+      },
+      margin: "100px 50px 0px 50px"
+      
     },
   },
 });
 
-const Request = (props) => {
+const RequestList = (props) => {
   const { request } = props;
   return (
     <StyledRoot className="request">
       <div className="request-head">
-        <Typography variant="h4" gutterBottom>
+        {/* <Typography variant="h4" gutterBottom>
           Featured Jobs
         </Typography>
         <div>
@@ -48,13 +50,14 @@ const Request = (props) => {
               class="fi fi-br-angle-small-right"
             ></i>
           </ButtonBlue>
-        </div>
+        </div> */}
       </div>
 
       <div className="wrap-card">
         {request
-          .filter((value, index) => {
-            return index > 2 && index < 6;
+          .filter((value) => {
+            const { link } = value;
+            return link.includes("request");
           })
           .map((value, index) => {
             return <CardRequest key={index} value={value}></CardRequest>;
@@ -64,4 +67,4 @@ const Request = (props) => {
   );
 };
 
-export default Request;
+export default RequestList;
