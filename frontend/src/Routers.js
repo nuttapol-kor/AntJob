@@ -9,6 +9,7 @@ import Landing from "./components/pages/landing";
 import Register from "./components/pages/register";
 import { UnauthorizedPage, NotFoundPage } from "./components/pages/error";
 import { RequestListPage } from "./components/pages/listCard/requestListPage";
+import { BiddingListPage } from "./components/pages/listCard/biddingListPage";
 
 //User
 import ProfilePage from "./components/pages/user/profile";
@@ -162,6 +163,7 @@ const Routers = () => {
           <Route exact path="/landing" component={Landing} />
           <Route exact path="/unauthorized" component={UnauthorizedPage} />
           <Route exact path="/request/list" component={RequestListPage} />
+          <Route exact path="/bidding/list" component={BiddingListPage} />
           <Container>
             {/* User Route */}
             <UserRoute exact path="/notification" component={Notification} />

@@ -5,6 +5,7 @@ import { Typography } from "@mui/material";
 
 import ButtonBlue from "../shared/general/ButtonBlue";
 import CardBidding from "../shared/general/CardBidding";
+import { NavLink } from "react-router-dom";
 
 const StyledRoot = styled("div")({
   "&.bidding": {
@@ -38,7 +39,9 @@ const Bidding = (props) => {
           Bidding Jobs
         </Typography>
         <div>
-          <ButtonBlue>
+          <ButtonBlue
+          component={NavLink}
+          to="/bidding/list">
             See All{" "}
             <i
               style={{ lineHeight: 0, paddingLeft: 6 }}
