@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { styled } from "@mui/material/styles";
 
-import { Typography } from "@mui/material";
+import { Typography, FormControl, InputLabel, OutlinedInput, InputAdornment, IconButton, TextField } from "@mui/material";
+import SearchIcon from "@mui/icons-material/Search";
 
 import ButtonBlue from "../shared/general/ButtonBlue";
 import CardRequest from "../shared/general/CardRequest";
 import { NavLink } from "react-router-dom";
+import { width } from "@mui/system";
 
 const StyledRoot = styled("div")({
   "&.request": {
@@ -14,10 +16,10 @@ const StyledRoot = styled("div")({
       display: "flex",
       justifyContent: "space-between",
       alignItems: "center",
-      marginBottom: 16,
+      margin: "100px 50px 0px 50px",
       ["@media only screen and (max-width: 600px)"]:{
         flexDirection: "column"
-      }
+      },
     },
     "& .wrap-card": {
       display: "grid",
@@ -26,7 +28,7 @@ const StyledRoot = styled("div")({
       ["@media only screen and (max-width: 600px)"]:{
         gridTemplateColumns: "repeat(1, 1fr)",
       },
-      margin: "100px 50px 0px 50px"
+      margin: "50px 50px 0px 50px"
       
     },
   },
@@ -34,31 +36,69 @@ const StyledRoot = styled("div")({
 
 const RequestList = (props) => {
   const { request } = props;
+  const onlyRequest = request.filter((value) => {
+    const { link } = value;
+    return link.includes("request");
+  })
+  const [filterRequestJob, setFilterRequestJob] = useState({
+    search: ""
+  })
+  const handleChangeFilterRequestJob = (event) => {
+    const name = event.target.name;
+    setFilterRequestJob({
+      ...filterRequestJob,
+      [name]: event.target.value,
+    });
+  };
+  const rowsFilter = () => {
+    if (
+      filterRequestJob.search == ""
+    ) {
+      return onlyRequest;
+    } else {
+      let resultFilter = [...onlyRequest];
+
+      if (filterRequestJob.search.length > 0) {
+        resultFilter = resultFilter.filter((item) => {
+          if (
+            item.name
+              .indexOf(filterRequestJob.search) >= 0
+          )
+            return item;
+        });
+      }
+      return resultFilter;
+    }
+  };
   return (
     <StyledRoot className="request">
       <div className="request-head">
-        {/* <Typography variant="h4" gutterBottom>
-          Featured Jobs
-        </Typography>
-        <div>
-          <ButtonBlue
-          component={NavLink}
-          to="/request/list">
-            See All{" "}
-            <i
-              style={{ lineHeight: 0, paddingLeft: 6 }}
-              class="fi fi-br-angle-small-right"
-            ></i>
-          </ButtonBlue>
-        </div> */}
+        <FormControl className={`formControl`} variant="outlined">
+                <TextField
+                fullWidth
+                id="outlined-adornment-weight"
+                label="ค้นหาตำแหน่ง"
+                value={filterRequestJob.search}
+                onChange={handleChangeFilterRequestJob}
+                name="search"
+                endAdornment={
+                  <InputAdornment position="end">
+                    <IconButton aria-label="search" edge="end" size="large">
+                      <SearchIcon />
+                    </IconButton>
+                  </InputAdornment>
+                }
+                aria-describedby="outlined-weight-helper-text"
+                inputProps={{
+                  "aria-label": "weight",
+                }}
+                labelWidth={90}
+                />
+          </FormControl>
       </div>
 
       <div className="wrap-card">
-        {request
-          .filter((value) => {
-            const { link } = value;
-            return link.includes("request");
-          })
+        {rowsFilter()
           .map((value, index) => {
             return <CardRequest key={index} value={value}></CardRequest>;
           })}
