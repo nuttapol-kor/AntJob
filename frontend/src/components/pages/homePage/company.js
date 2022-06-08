@@ -6,6 +6,7 @@ import ArrowRightAltOutlinedIcon from '@mui/icons-material/ArrowRightAltOutlined
 
 import ButtonBlue from "../shared/general/ButtonBlue";
 import ReactSlickDemo from "./slick-company";
+import { NavLink } from "react-router-dom";
 
 const StyledRoot = styled("div")({
   "& .company-head": {
@@ -33,7 +34,14 @@ const Company = (props) => {
         <ReactSlickDemo company={company} />
       </div>
       <div style={{ textAlign: "center" }}>
-        <ButtonBlue variant="outlined" endIcon={<ArrowRightAltOutlinedIcon />}>View All Company</ButtonBlue>
+        <ButtonBlue 
+        variant="outlined"
+        endIcon={<ArrowRightAltOutlinedIcon />}
+        component={NavLink}
+        to="/company/list"
+        >
+          View All Company
+        </ButtonBlue>
       </div>
     </StyledRoot>
   );
