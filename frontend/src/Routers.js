@@ -28,6 +28,8 @@ import {
   AdminDashboardOt,
   AdminDashboardWorkingTime
 } from "./components/pages/admin";
+import VendorListPage from "./components/pages/listCard/vendorListPage";
+import RegisterVendor from "./components/pages/form/registerVendor";
 
 const useStyles = makeStyles((theme) => ({
   content: {
@@ -166,6 +168,8 @@ const Routers = () => {
           <Route exact path="/request/list" component={RequestListPage} />
           <Route exact path="/bidding/list" component={BiddingListPage} />
           <Route exact path="/company/list" component={CompanyListPage} />
+          <Route exact path="/vendor/list" component={VendorListPage} />
+          <Route exact path="/vendor/register" component={RegisterVendor} />
           <Container>
             {/* User Route */}
             <UserRoute exact path="/notification" component={Notification} />

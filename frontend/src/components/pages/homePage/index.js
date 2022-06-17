@@ -23,6 +23,7 @@ import Bidding from "./bidding";
 import Request from "./request";
 import Category from "./category";
 import Company from "./company";
+import Vendor from "./vendor";
 
 
 import request from "../assets/data/request";
@@ -34,6 +35,7 @@ import ButtonBlue from "../shared/general/ButtonBlue";
 
 import Cover from "./assets/cover.png";
 import Locations from "./location";
+import vendor from "../assets/data/vendor";
 
 const StyledRoot = styled("div")({
   minWidth: 350,
@@ -124,6 +126,7 @@ function Home(props) {
         <Locations locations={locations} />
         <Category jobGroup={jobGroup} />
         <Company company={company} />
+        <Vendor vendor={vendor} />
       </Container>
     </StyledRoot>
   );

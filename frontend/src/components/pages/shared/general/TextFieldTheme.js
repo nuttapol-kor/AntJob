@@ -44,7 +44,15 @@ const TextFieldTheme = (props) => {
       multiline={props.multiline}
       maxRows={props.maxRows}
       rows={props.rows}
-    />
+      error={props.error}
+      helperText={props.helperText}
+      inputProps={props.inputProps}
+      inputRef={props.inputRef}
+      ref={props.ref}
+      select={props.select}
+    >
+      {props.children}
+    </StyleTextField>
   );
 };
 

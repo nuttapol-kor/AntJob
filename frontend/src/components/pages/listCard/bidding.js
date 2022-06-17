@@ -6,6 +6,7 @@ import SearchIcon from "@mui/icons-material/Search";
 
 import ButtonBlue from "../shared/general/ButtonBlue";
 import CardRequest from "../shared/general/CardRequest";
+import CardBidding from "../shared/general/CardBidding";
 import { NavLink } from "react-router-dom";
 import { width } from "@mui/system";
 
@@ -100,7 +101,7 @@ const BiddingList = (props) => {
       <div className="wrap-card">
         {rowsFilter()
           .map((value, index) => {
-            return <CardRequest key={index} value={value}></CardRequest>;
+            return <CardBidding key={index} value={value}></CardBidding>;
           })}
       </div>
     </StyledRoot>
