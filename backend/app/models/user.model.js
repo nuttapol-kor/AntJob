@@ -26,8 +26,8 @@ const Users = [
     mainContact: {},
     amdin: [],
     companyName: "Manpower Vender Company",
-    capital: "",
-    yearStart: "",
+    capital: "1,000,000",
+    yearStart: "1900",
     registerStart: "",
     contact: {
       fullname: "Brittney Medina",
@@ -36,7 +36,7 @@ const Users = [
     },
     manPowerSize: 0,
     incomeLastYear: 0,
-    description: "",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in viverra orci. Pellentesque sagittis id urna vitae eleifend. Proin ac est vestibulum, efficitur orci sit amet, consequat orci. Curabitur at semper tortor. Integer nunc lectus, fermentum ac elementum ut, ultrices quis lacus. Morbi nulla velit, ultrices vel nisl eget, luctus hendrerit eros. Sed a purus sed turpis tincidunt hendrerit. Nunc vitae dignissim tortor. Curabitur semper iaculis purus maximus cursus. Nulla nulla ex, ultricies vitae efficitur eget, auctor sit amet lorem. Cras in dui odio. In interdum magna turpis, et congue ante vulputate et. Proin volutpat sem ut nisi lobortis, vel rhoncus velit vulputate. Aliquam tortor tellus, gravida eget dictum in, pulvinar quis nisi. Curabitur bibendum placerat nulla eget ornare.",
     headOffice: {
       address:
         "เลขที่ 74/1 หมู่ 1 ถ.ราชพฤกษ์ ต.ท่าอิฐ อ.ปากเกร็ด จ.นนทบุรี 11120",
@@ -73,7 +73,7 @@ const Users = [
         email: "sgz@mail.com",
       },
     ],
-    expertise: [],
+    expertise: ["Software Engineering", "งานแม่บ้าน", "DevOps & IT", "Marketing", "Design"],
     chargeEarnings: 0,
     chargeOt: 0,
     remark: "",

@@ -30,6 +30,7 @@ import {
 } from "./components/pages/admin";
 import VendorListPage from "./components/pages/listCard/vendorListPage";
 import RegisterVendor from "./components/pages/form/registerVendor";
+import MeDisplayPage from "./components/pages/user/meDisplay";
 
 const useStyles = makeStyles((theme) => ({
   content: {
@@ -170,6 +171,7 @@ const Routers = () => {
           <Route exact path="/company/list" component={CompanyListPage} />
           <Route exact path="/vendor/list" component={VendorListPage} />
           <Route exact path="/vendor/register" component={RegisterVendor} />
+          <Route exact path="/me/display" component={MeDisplayPage} />
           <Container>
             {/* User Route */}
             <UserRoute exact path="/notification" component={Notification} />
