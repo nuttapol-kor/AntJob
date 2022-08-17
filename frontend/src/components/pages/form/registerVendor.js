@@ -156,19 +156,20 @@ const schema = yup.object().shape({
   companyDetail: yup.string(),
   registeredCapital: yup
     .number()
+    .typeError('ทุนจดทะเบียนควรเป็นตัวเลข')
     .moreThan(15, "ทุนในการจดทะเบียนต้องมากกว่า 15 บาท")
-    .integer()
+    .integer("ทุนจดทะเบียนควรเป็นเลขจำนวนเต็ม")
     .required(),
   registeredYear: yup.number().positive().integer().required(),
-  revenue: yup.number().positive("รายได้ควรมากกว่า 0").required(),
+  revenue: yup.number().typeError('รายได้ควรเป็นตัวเลข').positive("รายได้ควรมากกว่า 0").required(),
   manNumber: yup.string().required("ต้องระบุข้อมูลในช่องนี้"),
   contactName: yup.string().required("ต้องระบุข้อมูลในช่องนี้"),
-  contactEmail: yup.string().email().required("ต้องระบุข้อมูลในช่องนี้"),
-  contactPhone: yup.string().required("ต้องระบุข้อมูลในช่องนี้"),
+  contactEmail: yup.string().email("email ไม่ถูกต้อง").required("ต้องระบุข้อมูลในช่องนี้"),
+  contactPhone: yup.string().matches(/^[0-9]{10}/, {message:"เบอร์ไม่ถูกต้อง", excludeEmptyString:true}).required("ต้องระบุข้อมูลในช่องนี้"),
   enpertise: yup.array(),
   headOfficeAddress: yup.string().required("ต้องระบุข้อมูลในช่องนี้"),
-  headOfficeEmail: yup.string().email().required("ต้องระบุข้อมูลในช่องนี้"),
-  headOfficePhone: yup.string().required("ต้องระบุข้อมูลในช่องนี้"),
+  headOfficeEmail: yup.string().email("email ไม่ถูกต้อง").required("ต้องระบุข้อมูลในช่องนี้"),
+  headOfficePhone: yup.string().matches(/^[0-9]{10}/, {message:"เบอร์ไม่ถูกต้อง", excludeEmptyString:true}).required("ต้องระบุข้อมูลในช่องนี้"),
   // branch: yup.array().of(
   //   yup.object().shape({
   //     name: yup.string(),

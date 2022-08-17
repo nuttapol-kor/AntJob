@@ -107,7 +107,7 @@ const LocationTab = () => {
                 <Grid container direction={"column"}>
                   <Grid item>{userProfile.headOffice.address}</Grid>
                   <Grid item>
-                  <Typography variant="caption" color={"gray"}>Address</Typography>
+                  <Typography variant="caption" color={"gray"}>ที่อยู่</Typography>
                   </Grid>
                 </Grid>
               </Grid>
@@ -135,7 +135,7 @@ const LocationTab = () => {
                 <Grid container direction={"column"}>
                   <Grid item>{userProfile.headOffice.phone}</Grid>
                   <Grid item>
-                  <Typography variant="caption" color={"gray"}>Phone</Typography>
+                  <Typography variant="caption" color={"gray"}>เบอร์โทรศัพท์</Typography>
                   </Grid>
                 </Grid>
               </Grid>
