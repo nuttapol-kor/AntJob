@@ -11,7 +11,6 @@ const GeneralForm = (props) => {
         setValue("lastName", lname)
         setValue("mobileNumber", phone)
         setValue("email", email)
-        console.log("useEffect activate!!!!!!!!!!")
     }, [fname, lname, phone, email])
     return(
         <Fragment>

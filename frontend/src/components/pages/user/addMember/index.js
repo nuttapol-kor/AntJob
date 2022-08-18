@@ -132,6 +132,8 @@ const AddMember = () => {
     const informationThreeForm = useForm({
         resolver: yupResolver(informationThreeSchema),
         defaultValues: {
+            jobExperience: [],
+            education: [],
         }
     })
 
@@ -140,7 +142,7 @@ const AddMember = () => {
             case 0:  return <GeneralForm formProps={generalForm} fetchData={resumeData}/>;
             case 1:  return <InformationOneForm formProps={informationOneForm} fetchData={resumeData}/>;
             case 2:  return <InformationTwoForm formProps={informationTwoForm}/>;
-            case 3:  return <InformationThreeForm formProps={informationThreeForm}/>;
+            case 3:  return <InformationThreeForm formProps={informationThreeForm} fetchData={resumeData} />;
         }
     }
 
@@ -153,6 +155,7 @@ const AddMember = () => {
             console.log(generalForm.getValues())
             console.log(informationOneForm.getValues())
             console.log(informationTwoForm.getValues())
+            console.log(informationThreeForm.getValues())
             return
         }
         handleNext();

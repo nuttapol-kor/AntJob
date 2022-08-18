@@ -50,6 +50,7 @@ const TextFieldTheme = (props) => {
       inputRef={props.inputRef}
       ref={props.ref}
       select={props.select}
+      placeholder={props.placeholder}
     >
       {props.children}
     </StyleTextField>
