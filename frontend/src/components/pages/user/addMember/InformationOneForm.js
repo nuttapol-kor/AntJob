@@ -42,6 +42,20 @@ const InformationOne = (props) => {
     setValue("jobType", newTypes);
   };
 
+  const yearToPosition = (year) => {
+    if (year < 5) {
+      setValue("jobLevel", "Junior");
+    } else if (year < 10) {
+      setValue("jobLevel", "Senior");
+    } else if (year < 15) {
+      setValue("jobLevel", "Manager");
+    } else if (year < 20) {
+      setValue("jobLevel", "Director");
+    } else {
+      setValue("jobLevel", "C-Level");
+    }
+  };
+
   useEffect(() => {
     const duration = experience.map((obj) => obj.duration);
     let count = 0;
@@ -49,6 +63,7 @@ const InformationOne = (props) => {
       if (obj !== -1) count += obj;
     });
     setValue("yearOfExperience", count);
+    yearToPosition(count);
   }, [experience]);
 
   return (

@@ -1,6 +1,6 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import { useForm } from "react-hook-form";
-import { Button, Typography } from "@mui/material";
+import { Button, Typography, CircularProgress } from "@mui/material";
 import { makeStyles } from "@material-ui/styles";
 import UploadFileOutlinedIcon from "@mui/icons-material/UploadFileOutlined";
 import { useDropzone } from "react-dropzone";
@@ -22,10 +22,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const UploadFile = ({setData}) => {
+const UploadFile = ({ setData }) => {
   const classes = useStyles();
   const url = "http://127.0.0.1:8000/resume/extraction";
+  const [loading, setLoading] = useState(false);
   const onDrop = useCallback((acceptedFiles) => {
+    setLoading(true);
     acceptedFiles.forEach(async (file) => {
       const formData = new FormData();
       formData.append("file", file);
@@ -34,10 +36,13 @@ const UploadFile = ({setData}) => {
           headers: { "Content-Type": "multipart/form-data" },
         })
         .then((res) => {
-          setData(res.data)
-          console.log(res.data)
+          setData(res.data);
+          console.log(res.data);
         })
-        .catch((err) => console.log(err));
+        .catch((err) => console.log(err))
+        .finally(() => {
+          setLoading(false);
+        });
     });
   }, []);
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
@@ -45,24 +50,39 @@ const UploadFile = ({setData}) => {
     multiple: false,
   });
 
-  return (
-    <>
-      <div {...getRootProps({ className: classes.dropzone })}>
-        <input {...getInputProps()} />
-        {isDragActive ? (
+  const dropArea = () => {
+    if (!loading) {
+      if (isDragActive) {
+        return (
           <>
-            {/* <p>Drop the file here ...</p> */}
             <Typography>วางไฟล์ได้ที่นี่...</Typography>
           </>
-        ) : (
+        );
+      } else {
+        return (
           <>
             <UploadFileOutlinedIcon sx={{ fontSize: 50, color: "#1976d2" }} />
-            {/* <p>Drag 'n' drop a file here, or click to select a file</p> */}
             <Typography>
               คุณสามารถลากและวางไฟล์เรซูเม่ได้ที่นี่, หรือคลิ๊กเพื่อเลือกไฟล์
             </Typography>
           </>
-        )}
+        );
+      }
+    } else {
+      return (
+        <>
+          <CircularProgress />
+          <Typography>กำลังประมวลผล...</Typography>
+        </>
+      );
+    }
+  };
+
+  return (
+    <>
+      <div {...getRootProps({ className: classes.dropzone })}>
+        <input {...getInputProps()} />
+        {dropArea()}
       </div>
     </>
   );
