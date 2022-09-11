@@ -32,6 +32,8 @@ import VendorListPage from "./components/pages/listCard/vendorListPage";
 import RegisterVendor from "./components/pages/form/registerVendor";
 import MeDisplayPage from "./components/pages/user/meDisplay";
 import AddMember from "./components/pages/user/addMember";
+import MatchingList from "./components/pages/matchingList/matching";
+import { MatchingListPage } from "./components/pages/matchingList/matchingListPage";
 
 const useStyles = makeStyles((theme) => ({
   content: {
@@ -174,6 +176,7 @@ const Routers = () => {
           <Route exact path="/vendor/register" component={RegisterVendor} />
           <Route exact path="/me/display" component={MeDisplayPage} />
           <Route exact path="/vendor/members/addMember" component={AddMember} />
+          <Route exact path="/me/matchingjob" component={MatchingListPage} />
           {/* <Route exact path="/profile" component={ProfilePage} /> */}
           <Container>
             {/* User Route */}
