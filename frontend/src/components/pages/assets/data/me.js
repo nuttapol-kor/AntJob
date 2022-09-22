@@ -14,7 +14,7 @@ const krabung = [
         ],
         year_of_experience: 1,
         skill: ["MS Word", "MS PPT", "MS Excel", "Matlab", "C++"],
-        is_matching: true
+        is_matching: false
     },
     {
         fname: "Reya",

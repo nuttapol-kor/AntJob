@@ -43,6 +43,7 @@ const Matching = (props) => {
     return link.includes("request")
   })
   const krabungJobTitle = me.map(val => val.job_title)
+  const unMatching = me.filter(val => !val.is_matching)
   const matching = []
   onlyRequest.forEach(val => {
     if (krabungJobTitle.includes(val.name)) {
@@ -85,7 +86,7 @@ const Matching = (props) => {
       <Container>
       <div className="request-head">
         <img src={require("../assets/mocking.png")} style={{width: "10%"}}/>
-      <Typography>คนงานของคุณกำลังนอนชิวอีก 30 คนนะ หางานให้พวกเค้าหน่อยสิ</Typography>
+      <Typography>คนงานของคุณกำลังนอนชิวอีก {unMatching.length} คนนะ หางานให้พวกเค้าหน่อยสิ</Typography>
         <FormControl className={`formControl`} variant="outlined" fullWidth>
                 <TextField
                 fullWidth
